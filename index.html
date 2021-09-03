@@ -1,0 +1,162 @@
+<html>
+<head>
+    <link rel="stylesheet" href="Plugin/bootstrap.min.css">
+    <script src="Plugin/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="Plugin/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <title>A Simple Google Map</title>
+    <style>
+        #map-canvas {
+    height: 30em;
+    width: 30em;
+    }
+    </style>
+</head>
+
+<body>
+
+    <style>
+
+        #create{
+          border: 1px solid #0066ff;
+          color: #0066ff;
+        }
+      
+        #create:hover{
+          border: 1px solid #0066ff;
+          color: #fff;
+          background-color: #0066ff;
+        }
+      
+        #sign_out{
+          border: 1px solid #e60000;
+          color: #e60000;
+        }
+      
+        #sign_out:hover{
+          border: 1px solid #e60000;
+          color: #fff;
+          background-color: #e60000;
+        }
+      
+      </style>
+      
+       <!-- NavBar starting from here -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Online Shops</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tags</a>
+            </li>
+          </ul>
+          
+          <ul class="navbar-nav">
+
+            <li class='nav-item'>
+                <a class='nav-link' href='sign_in.php'>Sign In</a>
+                </li>
+      
+                <li class='nav-item'>
+                <a class='nav-link' href='sign_up.php'>Sign Up</a>
+                </li>
+      
+          </ul>
+      
+        </div>
+      </nav>
+      <!-- NavBar end from here -->
+
+
+
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card mt-4">
+                    <div class="card-header" id="card-header">
+                        <h4>Find Shops</h4>
+                    </div>
+                    <div class="card-body" id="card-body">
+
+                        <div class="form-group">
+                          <label for="">Shop Name</label>
+                          <select name="shop" id="shop">
+                            <option value="rnb">Ruwan Beakery</option>
+                            <option value="dm">Dinemore</option>
+                            <option value="as">Irish Bar</option>
+                          </select>
+                        </div>
+
+                    </div>
+                    <div class="card-footer" id="card-footer">
+                        <button class="btn btn-primary" id="show-map">Find Shop</button>
+                    </div>
+
+                    </form>
+                </div>
+
+<!-- <div id="map" style="width:600px; height: 400px;"></div> -->
+
+<div id="map-canvas"></div>
+
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgxY6DqJ4TxnRfKjlZR8SfLSQRtOSTxEU"></script>
+
+
+<script>
+   
+</script>
+<script>
+    function initialize() {
+
+
+
+//Add the event listener after Google Mpas and window is loaded
+$('#show-map').click(function () {
+
+    var shop = $("#shop").val();
+
+    if(shop == "rnb"){
+
+        var mapOptions = {
+        center: { lat: 6.912695713653556, lng: 79.84952869717154 },
+        zoom: 50
+        }
+
+    }
+    else if(shop = "dm"){
+            var mapOptions = {
+        center: { lat: 6.918624, lng: 79.856329 },
+        zoom: 20
+        }
+    }
+    else if(shop = "as"){
+        var mapOptions = {
+    center: { lat: 6.9160894, lng: 79.859783 },
+    zoom: 20
+    }
+
+    
+};
+var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+});
+
+
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</body>
+</html>
